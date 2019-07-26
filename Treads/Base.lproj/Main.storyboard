@@ -176,6 +176,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Dm-G3r">
                                 <rect key="frame" x="254" y="552" width="75" height="75"/>
                                 <state key="normal" image="pauseButton"/>
+                                <connections>
+                                    <action selector="puaseBtnPressed:" destination="SDY-Wd-lfS" eventType="touchUpInside" id="TfP-TL-uRY"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="Sto-i6-cFg">
                                 <rect key="frame" x="53.5" y="561" width="57" height="57"/>
@@ -218,6 +221,10 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="distanceLbl" destination="p9z-m2-W2g" id="CsF-ZT-ZvH"/>
+                        <outlet property="durationLbl" destination="4S0-nv-Fhj" id="bFR-jq-MvW"/>
+                        <outlet property="paceLbl" destination="yE9-zJ-9bG" id="bBl-XB-6bO"/>
+                        <outlet property="pauseBtn" destination="XnT-Dm-G3r" id="7re-ZA-0g7"/>
                         <outlet property="sliderImgView" destination="Sto-i6-cFg" id="Cjg-NP-NYV"/>
                         <outlet property="swipBGImage" destination="7gv-OZ-hfj" id="DnY-oK-j7b"/>
                     </connections>
