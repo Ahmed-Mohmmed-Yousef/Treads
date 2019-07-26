@@ -47,10 +47,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZT-Hs-0hd">
                                 <rect key="frame" x="152" y="508" width="71" height="71"/>
                                 <state key="normal" image="startRunningButton"/>
+                                <connections>
+                                    <segue destination="SDY-Wd-lfS" kind="show" id="XkZ-nV-lnV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qez-eB-1NX">
                                 <rect key="frame" x="301" y="420.5" width="58" height="58"/>
                                 <state key="normal" image="centerNavButton"/>
+                                <connections>
+                                    <action selector="locatinCenterBtnPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CvU-VD-Rep"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -75,10 +81,150 @@
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="tabbar-runIconGray" selectedImage="tabbar-runIcon" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="mapView" destination="lRw-mD-iLQ" id="HJ5-tT-Hl6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+        </scene>
+        <!--Current RunVC-->
+        <scene sceneID="3ER-Aq-HXK">
+            <objects>
+                <viewController id="SDY-Wd-lfS" customClass="CurrentRunVC" customModule="Treads" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5y3-2U-DGz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG" translatesAutoresizingMaskIntoConstraints="NO" id="3LJ-OD-Yli">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S0-nv-Fhj">
+                                <rect key="frame" x="129" y="84.5" width="117.5" height="30.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="On Run" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Osr-YO-Cqj">
+                                <rect key="frame" x="150" y="28" width="75.5" height="24.5"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kOC-Fl-zUV">
+                                <rect key="frame" x="105.5" y="189.5" width="164.5" height="141.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg. Pace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZZ-0t-wjj">
+                                        <rect key="frame" x="44.5" y="0.0" width="75" height="20.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yE9-zJ-9bG">
+                                        <rect key="frame" x="0.0" y="28.5" width="164.5" height="85.5"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="70"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/mi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzk-9D-y2R">
+                                        <rect key="frame" x="71" y="122" width="22.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv1-1O-2fk">
+                                <rect key="frame" x="0.0" y="160" width="375" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="XPy-P0-FFP"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sBE-m2-UWx">
+                                <rect key="frame" x="147.5" y="392" width="80" height="74"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fy9-YY-mKh">
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="23"/>
+                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="k3Y-r2-OiB">
+                                        <rect key="frame" x="0.0" y="31" width="80" height="43"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p9z-m2-W2g">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="43"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="35"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/mi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDh-kP-Hzg">
+                                                <rect key="frame" x="60" y="20.5" width="20" height="17"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunOutline" translatesAutoresizingMaskIntoConstraints="NO" id="7gv-OZ-hfj">
+                                <rect key="frame" x="45.5" y="552" width="232" height="75"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XnT-Dm-G3r">
+                                <rect key="frame" x="254" y="552" width="75" height="75"/>
+                                <state key="normal" image="pauseButton"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="endRunButton" translatesAutoresizingMaskIntoConstraints="NO" id="Sto-i6-cFg">
+                                <rect key="frame" x="53.5" y="561" width="57" height="57"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="END RUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGV-NB-zw0">
+                                <rect key="frame" x="157" y="580" width="69.5" height="19.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3LJ-OD-Yli" firstAttribute="bottom" secondItem="u2Q-3A-DV7" secondAttribute="bottom" id="3Jm-he-Hcj"/>
+                            <constraint firstItem="7gv-OZ-hfj" firstAttribute="leading" secondItem="Sto-i6-cFg" secondAttribute="trailing" constant="-65" id="50k-vF-sv7"/>
+                            <constraint firstItem="mGV-NB-zw0" firstAttribute="centerX" secondItem="7gv-OZ-hfj" secondAttribute="centerX" constant="30" id="6wz-xx-MT2"/>
+                            <constraint firstItem="3LJ-OD-Yli" firstAttribute="centerX" secondItem="5y3-2U-DGz" secondAttribute="centerX" id="Chm-M6-g0V"/>
+                            <constraint firstItem="hv1-1O-2fk" firstAttribute="trailing" secondItem="u2Q-3A-DV7" secondAttribute="trailing" id="D35-aP-HrD"/>
+                            <constraint firstItem="Osr-YO-Cqj" firstAttribute="top" secondItem="u2Q-3A-DV7" secondAttribute="top" constant="8" id="Ey6-mR-m9j"/>
+                            <constraint firstItem="3LJ-OD-Yli" firstAttribute="trailing" secondItem="u2Q-3A-DV7" secondAttribute="trailing" id="GjV-YU-hbc"/>
+                            <constraint firstItem="Osr-YO-Cqj" firstAttribute="centerX" secondItem="5y3-2U-DGz" secondAttribute="centerX" id="KCP-EF-YFQ"/>
+                            <constraint firstItem="4S0-nv-Fhj" firstAttribute="top" secondItem="Osr-YO-Cqj" secondAttribute="bottom" constant="32" id="Qvs-Vs-AhC"/>
+                            <constraint firstItem="3LJ-OD-Yli" firstAttribute="top" secondItem="5y3-2U-DGz" secondAttribute="top" id="S7U-gx-rnP"/>
+                            <constraint firstItem="3LJ-OD-Yli" firstAttribute="leading" secondItem="u2Q-3A-DV7" secondAttribute="leading" id="TLK-uw-cWY"/>
+                            <constraint firstItem="mGV-NB-zw0" firstAttribute="centerY" secondItem="7gv-OZ-hfj" secondAttribute="centerY" id="UKL-UW-DkR"/>
+                            <constraint firstItem="sBE-m2-UWx" firstAttribute="centerX" secondItem="5y3-2U-DGz" secondAttribute="centerX" id="WWb-zv-DK0"/>
+                            <constraint firstItem="XnT-Dm-G3r" firstAttribute="centerY" secondItem="7gv-OZ-hfj" secondAttribute="centerY" id="WXX-dC-GLb"/>
+                            <constraint firstItem="hv1-1O-2fk" firstAttribute="top" secondItem="4S0-nv-Fhj" secondAttribute="bottom" constant="45" id="Xd4-LM-De1"/>
+                            <constraint firstItem="hv1-1O-2fk" firstAttribute="leading" secondItem="u2Q-3A-DV7" secondAttribute="leading" id="XwK-dp-5HJ"/>
+                            <constraint firstItem="7gv-OZ-hfj" firstAttribute="centerX" secondItem="5y3-2U-DGz" secondAttribute="centerX" constant="-26" id="gMZ-zJ-Yeb"/>
+                            <constraint firstItem="kOC-Fl-zUV" firstAttribute="centerY" secondItem="hv1-1O-2fk" secondAttribute="centerY" id="hQh-o4-9Kr"/>
+                            <constraint firstItem="Sto-i6-cFg" firstAttribute="centerY" secondItem="7gv-OZ-hfj" secondAttribute="centerY" id="hzm-qB-VnX"/>
+                            <constraint firstItem="sBE-m2-UWx" firstAttribute="top" secondItem="hv1-1O-2fk" secondAttribute="bottom" constant="32" id="oKh-XY-SJG"/>
+                            <constraint firstItem="XnT-Dm-G3r" firstAttribute="leading" secondItem="7gv-OZ-hfj" secondAttribute="trailing" constant="-23.5" id="oRA-mQ-G3m"/>
+                            <constraint firstItem="u2Q-3A-DV7" firstAttribute="bottom" secondItem="7gv-OZ-hfj" secondAttribute="bottom" constant="40" id="svz-a3-Ao1"/>
+                            <constraint firstItem="kOC-Fl-zUV" firstAttribute="centerX" secondItem="hv1-1O-2fk" secondAttribute="centerX" id="ulw-sA-NwK"/>
+                            <constraint firstItem="4S0-nv-Fhj" firstAttribute="centerX" secondItem="5y3-2U-DGz" secondAttribute="centerX" id="vvr-A9-QZc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u2Q-3A-DV7"/>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="sliderImgView" destination="Sto-i6-cFg" id="Cjg-NP-NYV"/>
+                        <outlet property="swipBGImage" destination="7gv-OZ-hfj" id="DnY-oK-j7b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FRg-FH-s72" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="-321.58920539730138"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -216,6 +362,9 @@
     <resources>
         <image name="BG" width="375" height="667"/>
         <image name="centerNavButton" width="58" height="58"/>
+        <image name="endRunButton" width="57" height="57"/>
+        <image name="endRunOutline" width="232" height="75"/>
+        <image name="pauseButton" width="75" height="75"/>
         <image name="startRunningButton" width="71" height="71"/>
         <image name="tabbar-myLogIcon" width="25" height="25"/>
         <image name="tabbar-myLogIconGray" width="25" height="25"/>
