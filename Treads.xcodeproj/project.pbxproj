@@ -10,6 +10,7 @@
 		146CCAF40FA4F1C6BC5B84C3 /* Pods_Treads.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A96950AAA8EBF4E55CA938D /* Pods_Treads.framework */; };
 		242995F822EB549F000DE8E7 /* Exts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242995F722EB549F000DE8E7 /* Exts.swift */; };
 		242995FA22EC548B000DE8E7 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242995F922EC548B000DE8E7 /* Run.swift */; };
+		242995FC22EC6388000DE8E7 /* Constans.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242995FB22EC6388000DE8E7 /* Constans.swift */; };
 		244AA1E322E9F96A004BC274 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 244AA1E222E9F96A004BC274 /* LocationVC.swift */; };
 		246D592822E9A1E800E00713 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 246D592722E9A1E800E00713 /* AppDelegate.swift */; };
 		246D592F22E9A1E800E00713 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 246D592D22E9A1E800E00713 /* Main.storyboard */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		242995F722EB549F000DE8E7 /* Exts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exts.swift; sourceTree = "<group>"; };
 		242995F922EC548B000DE8E7 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		242995FB22EC6388000DE8E7 /* Constans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constans.swift; sourceTree = "<group>"; };
 		244AA1E222E9F96A004BC274 /* LocationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		246D592422E9A1E800E00713 /* Treads.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Treads.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		246D592722E9A1E800E00713 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 		246D593F22E9A6E600E00713 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				242995FB22EC6388000DE8E7 /* Constans.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			files = (
 				24AFCA1322EAE0AC005D5BCA /* CurrentRunVC.swift in Sources */,
 				246D596822E9BE8100E00713 /* RunLogVC.swift in Sources */,
+				242995FC22EC6388000DE8E7 /* Constans.swift in Sources */,
 				244AA1E322E9F96A004BC274 /* LocationVC.swift in Sources */,
 				246D596922E9BE8100E00713 /* BeginRunVC.swift in Sources */,
 				242995F822EB549F000DE8E7 /* Exts.swift in Sources */,

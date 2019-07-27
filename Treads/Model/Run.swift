@@ -24,6 +24,7 @@ class Run: Object{
     override class func indexedProperties() -> [String] {
         return ["pace","date","duration"]
     }
+    
     convenience init(pace: Int, distance: Double, duration: Int){
         self.init()
         self.id = UUID().uuidString.lowercased()
@@ -31,5 +32,35 @@ class Run: Object{
         self.pace = pace
         self.distance = distance
         self.duration = duration
+    }
+    
+    static func addRunToRealm(pace: Int, distance: Double, duration: Int){
+        let run = Run(pace: pace, distance: distance, duration: duration)
+        REALM_QUEUE.async {
+            do{
+                let realm = try Realm()
+                try realm.write {
+                    realm.add(run)
+                    try realm.commitWrite()
+                }
+            } catch{
+                debugPrint("Error adding run to realm")
+            }
+        }
+    }
+    
+    enum RealmError: Error {
+        case cantRead
+    }
+    static func getAllRuns() -> Results<Run>? {
+        do{
+            let realm = try Realm()
+            var runs =  realm.objects(Run.self)
+            runs = runs.sorted(byKeyPath: "date", ascending: false)
+            return runs
+            
+        } catch {
+            return nil
+        }
     }
 }
